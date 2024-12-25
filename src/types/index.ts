@@ -1,3 +1,3 @@
-export type { ApiHelperProviderProps  } from "./ApiContextProvider.types";
+export type { ApiHelperProviderProps } from "./ApiContextProvider.types";
 export type { useApiHelperProps } from "./useApiHelper.types";
-export type { HTTPMethod } from "./GenericTypes";
+export type { HTTPMethod, ApiHelperResult } from "./GenericTypes";
