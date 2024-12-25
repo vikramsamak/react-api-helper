@@ -3,20 +3,20 @@ import { useApiHelperProps } from "../types";
 import { apiRequest } from "../utils";
 import { useApiHelperContext } from "./useApiHelperContext";
 
-export function useApiHelper<TData = unknown, TError = unknown>({
+export function useApiHelper<responseType = unknown, errorType = unknown>({
   url,
   params,
   queryKey,
   axiosOptions,
   method,
   ...rest
-}: useApiHelperProps<TData, TError>): UseQueryResult<TData, TError> {
+}: useApiHelperProps<responseType, errorType>): UseQueryResult<responseType, errorType> {
   const { axiosInstance } = useApiHelperContext();
 
-  return useQuery<TData, TError>({
+  return useQuery<responseType, errorType>({
     queryKey: queryKey,
     queryFn: async () =>
-      await apiRequest<TData, TError>(axiosInstance, method, url, {
+      await apiRequest<responseType, errorType>(axiosInstance, method, url, {
         params,
         ...axiosOptions,
       }),

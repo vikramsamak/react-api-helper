@@ -1,14 +1,14 @@
 import axios, { AxiosError, AxiosInstance, AxiosRequestConfig } from "axios";
 import { HTTPMethod } from "../types";
 
-export const apiRequest = async <TData = unknown, TError = unknown>(
+export const apiRequest = async <responseType = unknown, errorType = unknown>(
   axiosInstance: AxiosInstance,
   method: HTTPMethod,
   url: string,
   options?: AxiosRequestConfig
-): Promise<TData> => {
+): Promise<responseType> => {
   try {
-    const response = await axiosInstance.request<TData>({
+    const response = await axiosInstance.request<responseType>({
       url,
       method,
       ...options,
@@ -23,12 +23,12 @@ export const apiRequest = async <TData = unknown, TError = unknown>(
           axiosError.message,
         status: axiosError.response?.status || 500,
         data: axiosError.response?.data || null,
-      } as TError;
+      } as errorType;
     }
 
     throw {
       message: (error as Error).message || "An unknown error occurred",
       status: 500,
-    } as TError;
+    } as errorType;
   }
 };
