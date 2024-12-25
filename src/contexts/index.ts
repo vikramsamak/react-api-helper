@@ -1,1 +1,1 @@
-export { default as APIHelperContext } from "./APIHelperContext";
+export { default as ApiHelperContext } from "./ApiHelperContext";

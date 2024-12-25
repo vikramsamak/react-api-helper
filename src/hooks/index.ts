@@ -1,2 +1,2 @@
-export { useAPIHelperContext } from "./useAPIHelperContext";
-export { useFetch } from "./useFetch";
+export { useApiHelperContext } from "./useApiHelperContext";
+export { useApiHelper } from "./useApiHelper";

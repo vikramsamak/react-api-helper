@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import { APIHelperContext } from "../contexts/APIHelperContext";
+import { ApiHelperContext } from "../contexts/ApiHelperContext";
 
-export const useAPIHelperContext = () => {
-  const context = useContext(APIHelperContext);
+export const useApiHelperContext = () => {
+  const context = useContext(ApiHelperContext);
   if (!context) {
     throw new Error("useAPIHelper must be used within APIHelperProvider");
   }

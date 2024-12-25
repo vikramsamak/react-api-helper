@@ -1,6 +1,6 @@
 //CONTEXTS
-export { APIHelperContext } from "./contexts";
+export { ApiHelperContext } from "./contexts";
 //TYPES
-export type { APIHelperProviderProps, useFetchProps } from "./types";
+export type { ApiHelperProviderProps, useApiHelperProps } from "./types";
 //HOOKS
-export { useFetch } from "./hooks";
+export { useApiHelper } from "./hooks";
