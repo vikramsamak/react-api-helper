@@ -1,18 +1,19 @@
 import { useQuery, UseQueryResult } from "@tanstack/react-query";
-import { useAPIHelperContext } from "./useAPIHelperContext";
 import axios, { AxiosError } from "axios";
+import { useAPIHelperContext } from "./useAPIHelperContext";
 import { useFetchProps } from "../types";
 
 export function useFetch<TData = unknown, TError = unknown>({
   url,
   params,
-  ...options
+  querykey,
+  options,
 }: useFetchProps<TData, TError>): UseQueryResult<TData, TError> {
   const { axiosInstance } = useAPIHelperContext();
 
-  return useQuery<TData, TError>(
-    [url, params],
-    async () => {
+  return useQuery<TData, TError>({
+    queryKey: querykey,
+    queryFn: async () => {
       try {
         const response = await axiosInstance.get<TData>(url, { params });
         return response.data;
@@ -20,21 +21,21 @@ export function useFetch<TData = unknown, TError = unknown>({
         if (axios.isAxiosError(error)) {
           const axiosError = error as AxiosError;
 
-          return Promise.reject({
+          throw {
             message:
               (axiosError.response?.data as { message?: string })?.message ||
               axiosError.message,
             status: axiosError.response?.status || 500,
             data: axiosError.response?.data || null,
-          });
+          } as TError;
         }
 
-        return Promise.reject({
+        throw {
           message: (error as Error).message || "An unknown error occurred",
           status: 500,
-        });
+        } as TError;
       }
     },
-    options
-  );
+    ...options, // Spread the rest of the options to apply to the query
+  });
 }

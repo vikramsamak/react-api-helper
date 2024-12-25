@@ -1,10 +1,9 @@
 import React, { createContext } from "react";
-import {
-  QueryClient,
-  QueryClientConfig,
-  QueryClientProvider,
-} from "@tanstack/react-query";
+import { QueryClient, QueryClientConfig } from "@tanstack/react-query";
+import { PersistQueryClientProvider } from "@tanstack/react-query-persist-client";
+import { createAsyncStoragePersister } from "@tanstack/query-async-storage-persister";
 import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
+import AsyncStorage from "@react-native-async-storage/async-storage"; // Import AsyncStorage
 import { APIHelperProviderProps } from "../types";
 
 interface APIHelperContextProps {
@@ -24,7 +23,6 @@ const defaultQueryClientConfig: QueryClientConfig = {
   defaultOptions: {
     queries: {
       staleTime: 5 * 60 * 1000,
-      cacheTime: 10 * 60 * 1000,
       retry: 3,
       refetchOnWindowFocus: false,
     },
@@ -48,9 +46,18 @@ const APIHelperProvider: React.FC<APIHelperProviderProps> = ({
     ...queryClientConfig,
   });
 
+  const asyncStoragePersister = createAsyncStoragePersister({
+    storage: AsyncStorage,
+  });
+
   return (
     <APIHelperContext.Provider value={{ axiosInstance }}>
-      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+      <PersistQueryClientProvider
+        client={queryClient}
+        persistOptions={{ persister: asyncStoragePersister }}
+      >
+        {children}
+      </PersistQueryClientProvider>
     </APIHelperContext.Provider>
   );
 };
