@@ -6,13 +6,13 @@ import { useFetchProps } from "../types";
 export function useFetch<TData = unknown, TError = unknown>({
   url,
   params,
-  querykey,
-  options,
+  queryKey,
+  ...rest
 }: useFetchProps<TData, TError>): UseQueryResult<TData, TError> {
   const { axiosInstance } = useAPIHelperContext();
 
   return useQuery<TData, TError>({
-    queryKey: querykey,
+    queryKey: queryKey,
     queryFn: async () => {
       try {
         const response = await axiosInstance.get<TData>(url, { params });
@@ -36,6 +36,6 @@ export function useFetch<TData = unknown, TError = unknown>({
         } as TError;
       }
     },
-    ...options, // Spread the rest of the options to apply to the query
+    ...rest,
   });
 }

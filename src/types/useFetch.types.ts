@@ -1,8 +1,8 @@
-import { UseQueryOptions } from "@tanstack/react-query";
+import { QueryKey, UseQueryOptions } from "@tanstack/react-query";
 
-export interface UseFetchProps<TData, TError>
+export interface useFetchProps<TData, TError>
   extends Omit<UseQueryOptions<TData, TError, TData>, "queryKey" | "queryFn"> {
-  url: string; 
-  params?: Record<string, unknown>; 
-  queryKey: string | string[]; 
+  url: string;
+  params?: Record<string, unknown>;
+  queryKey: QueryKey;
 }
