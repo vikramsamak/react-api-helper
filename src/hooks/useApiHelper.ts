@@ -1,6 +1,6 @@
 import { useQuery, UseQueryResult } from "@tanstack/react-query";
 import { useApiHelperProps } from "../types";
-import { apiRequest } from "../utils/apirequest";
+import { apiRequest } from "../utils";
 import { useApiHelperContext } from "./useApiHelperContext";
 
 export function useApiHelper<TData = unknown, TError = unknown>({
