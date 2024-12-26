@@ -1,6 +1,6 @@
-import { UseMutationResult, UseQueryResult } from "@tanstack/react-query";
+import { UseMutationResult, UseQueryResult } from '@tanstack/react-query';
 
-export type HTTPMethod = "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
+export type HTTPMethod = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
 
 export type ApiHelperResult<responseType, errorType, payloadType> =
   | UseQueryResult<responseType, errorType>

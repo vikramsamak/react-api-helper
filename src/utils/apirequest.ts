@@ -1,5 +1,5 @@
-import axios, { AxiosError, AxiosInstance, AxiosRequestConfig } from "axios";
-import { HTTPMethod } from "../types";
+import axios, { AxiosError, AxiosInstance, AxiosRequestConfig } from 'axios';
+import { HTTPMethod } from '../types';
 
 export const apiRequest = async <responseType = unknown, errorType = unknown>(
   axiosInstance: AxiosInstance,
@@ -27,7 +27,7 @@ export const apiRequest = async <responseType = unknown, errorType = unknown>(
     }
 
     throw {
-      message: (error as Error).message || "An unknown error occurred",
+      message: (error as Error).message || 'An unknown error occurred',
       status: 500,
     } as errorType;
   }

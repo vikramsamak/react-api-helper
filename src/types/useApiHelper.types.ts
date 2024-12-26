@@ -1,14 +1,14 @@
-import { QueryKey, UseQueryOptions } from "@tanstack/react-query";
-import { AxiosRequestConfig } from "axios";
-import { HTTPMethod } from "./GenericTypes";
+import { QueryKey, UseQueryOptions } from '@tanstack/react-query';
+import { AxiosRequestConfig } from 'axios';
+import { HTTPMethod } from './GenericTypes';
 
 export interface useApiHelperProps<
   responseType,
   errorType,
-  payloadType = unknown
+  payloadType = unknown,
 > extends Omit<
     UseQueryOptions<responseType, errorType, responseType>,
-    "queryKey" | "queryFn"
+    'queryKey' | 'queryFn'
   > {
   url: string;
   params?: Record<string, unknown>;
