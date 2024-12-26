@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ApiHelperContext } from "../contexts/ApiHelperContext";
+import { ApiHelperContext } from "../contexts/ApiHelperProvider";
 
 export const useApiHelperContext = () => {
   const context = useContext(ApiHelperContext);
