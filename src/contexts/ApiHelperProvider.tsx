@@ -1,9 +1,9 @@
-import React, { createContext } from 'react';
+import React, { createContext, useContext } from 'react';
 import { QueryClient, QueryClientConfig } from '@tanstack/react-query';
 import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client';
 import { createAsyncStoragePersister } from '@tanstack/query-async-storage-persister';
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
-import AsyncStorage from '@react-native-async-storage/async-storage'; 
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { ApiHelperProviderProps } from '../types';
 
 interface ApiHelperContextProps {
@@ -63,3 +63,12 @@ const ApiHelperProvider: React.FC<ApiHelperProviderProps> = ({
 };
 
 export default ApiHelperProvider;
+
+// eslint-disable-next-line react-refresh/only-export-components
+export const useApiHelperContext = () => {
+  const context = useContext(ApiHelperContext);
+  if (!context) {
+    throw new Error('useAPIHelper must be used within APIHelperProvider');
+  }
+  return context;
+};

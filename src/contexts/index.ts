@@ -1,1 +1,4 @@
-export { default as ApiHelperProvider } from './ApiHelperProvider';
+export {
+  default as ApiHelperProvider,
+  useApiHelperContext,
+} from './ApiHelperProvider';

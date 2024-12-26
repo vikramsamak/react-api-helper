@@ -1,7 +1,7 @@
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { ApiHelperResult, useApiHelperProps } from '../types';
 import { apiRequest } from '../utils';
-import { useApiHelperContext } from './useApiHelperContext';
+import { useApiHelperContext } from '../contexts';
 
 export function useApiHelper<
   responseType = unknown,
