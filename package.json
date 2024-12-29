@@ -3,12 +3,46 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "author": "Vikram Samak",
+  "description": "A React utility library for making API calls using React Query and Axios, providing context-based configuration and custom hooks for seamless integration.",
+  "keywords": [
+    "react",
+    "react-query",
+    "axios",
+    "api-helper",
+    "api-calls",
+    "react-library",
+    "context-provider",
+    "typescript",
+    "http-client",
+    "data-fetching",
+    "async-storage",
+    "state-management"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/vikramsamak/react-api-helper#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vikramsamak/react-api-helper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vikramsamak/react-api-helper/issues"
+  },
+  "main": "dist/react-api-helper-umd.js",
+  "module": "dist/react-api-helper-es.js",
+  "types": "dist/react-api-helper-es.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "npm-publish": "npm run build && npm version patch && npm publish"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^2.1.0",
