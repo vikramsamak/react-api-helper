@@ -21,8 +21,8 @@ export default defineConfig({
     sourcemap: true,
     lib: {
       entry: path.resolve(__dirname, 'lib/index.ts'),
-      name: 'react-api-helper',
-      fileName: (format) => `react-api-helper-${format}.js`,
+      name: 'react-api-utils',
+      fileName: (format) => `react-api-utils-${format}.js`,
     },
     rollupOptions: {
       external: [

@@ -1,4 +1,4 @@
-# React API Helper
+# React API Utils
 
 A utility library for simplifying API requests in React applications. Built on top of **React Query** and **Axios**, it provides a seamless way to manage API calls and caching with an intuitive context-based setup.
 
@@ -12,9 +12,9 @@ A utility library for simplifying API requests in React applications. Built on t
 ## Installation
 
 ```bash
-npm install react-api-helper
+npm install react-api-utils
 # or
-yarn add react-api-helper
+yarn add react-api-utils
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ Wrap your application with the `ApiHelperProvider` to set up the context and con
 
 ```tsx
 import React from "react";
-import { ApiHelperProvider } from "react-api-helper";
+import { ApiHelperProvider } from "react-api-utils";
 
 const App = () => (
   <ApiHelperProvider baseURL="https://api.example.com">
@@ -41,7 +41,7 @@ export default App;
 Leverage the `useApiHelper` hook to perform API requests effortlessly.
 
 ```tsx
-import { useApiHelper } from "react-api-helper";
+import { useApiHelper } from "react-api-utils";
 
 const MyComponent = () => {
   const { data, isLoading, isError } = useApiHelper({

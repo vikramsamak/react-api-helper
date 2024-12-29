@@ -1,5 +1,5 @@
 {
-  "name": "react-api-helper",
+  "name": "react-api-utils",
   "version": "0.0.3",
   "type": "module",
   "author": "Vikram Samak",
@@ -19,17 +19,17 @@
     "state-management"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/vikramsamak/react-api-helper#readme",
+  "homepage": "https://github.com/vikramsamak/react-api-utils#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vikramsamak/react-api-helper.git"
+    "url": "git+https://github.com/vikramsamak/react-api-utils.git"
   },
   "bugs": {
-    "url": "https://github.com/vikramsamak/react-api-helper/issues"
+    "url": "https://github.com/vikramsamak/react-api-utils/issues"
   },
-  "main": "dist/react-api-helper-umd.js",
-  "module": "dist/react-api-helper-es.js",
-  "types": "dist/react-api-helper-es.d.ts",
+  "main": "dist/react-api-utils-umd.js",
+  "module": "dist/react-api-utils-es.js",
+  "types": "dist/react-api-utils-es.d.ts",
   "files": [
     "dist",
     "README.md",
