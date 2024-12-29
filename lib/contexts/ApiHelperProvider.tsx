@@ -10,10 +10,7 @@ interface ApiHelperContextProps {
   axiosInstance: AxiosInstance;
 }
 
-// eslint-disable-next-line react-refresh/only-export-components
-export const ApiHelperContext = createContext<ApiHelperContextProps | null>(
-  null
-);
+const ApiHelperContext = createContext<ApiHelperContextProps | null>(null);
 
 const defaultAxiosConfig: AxiosRequestConfig = {
   timeout: 10000,
