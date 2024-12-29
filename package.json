@@ -1,7 +1,7 @@
 {
   "name": "react-api-helper",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "author": "Vikram Samak",
   "description": "A React utility library for making API calls using React Query and Axios, providing context-based configuration and custom hooks for seamless integration.",
