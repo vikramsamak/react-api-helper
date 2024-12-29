@@ -1,18 +1,11 @@
 import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 import { useApiHelper } from '../lib/hooks';
-import { ApiHelperProvider } from '../lib/contexts';
-import { JSONPLACEHOLDER_BASE_URL } from './StoriesConstant';
+import sharedConfig from './ApiHelper.stories';
 
 export default {
+  ...sharedConfig,
   title: 'Hooks/useApiHelper',
-  decorators: [
-    (Story) => (
-      <ApiHelperProvider baseURL={JSONPLACEHOLDER_BASE_URL}>
-        <Story />
-      </ApiHelperProvider>
-    ),
-  ],
   args: {
     url: '/todos/1',
     queryKey: ['todo'].join(','),
