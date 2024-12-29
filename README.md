@@ -24,8 +24,8 @@ yarn add react-api-utils
 Wrap your application with the `ApiHelperProvider` to set up the context and configuration.
 
 ```tsx
-import React from "react";
-import { ApiHelperProvider } from "react-api-utils";
+import React from 'react';
+import { ApiHelperProvider } from 'react-api-utils';
 
 const App = () => (
   <ApiHelperProvider baseURL="https://api.example.com">
@@ -41,13 +41,13 @@ export default App;
 Leverage the `useApiHelper` hook to perform API requests effortlessly.
 
 ```tsx
-import { useApiHelper } from "react-api-utils";
+import { useApiHelper } from 'react-api-utils';
 
 const MyComponent = () => {
   const { data, isLoading, isError } = useApiHelper({
-    url: "/endpoint",
-    method: "GET",
-    queryKey: ["endpoint-data"],
+    url: '/endpoint',
+    method: 'GET',
+    queryKey: ['endpoint-data'],
   });
 
   if (isLoading) return <p>Loading...</p>;
@@ -61,19 +61,19 @@ const MyComponent = () => {
 
 ### `ApiHelperProvider`
 
-| Prop       | Type                 | Default         | Description                                      |
-|------------|----------------------|-----------------|--------------------------------------------------|
-| `baseURL`  | `string`             | `undefined`     | Base URL for all Axios requests.                |
-| `axiosConfig` | `AxiosRequestConfig` | `{}`           | Custom Axios configuration.                     |
-| `queryClientConfig` | `QueryClientConfig` | `{}`       | React Query client configuration.               |
+| Prop                | Type                 | Default     | Description                       |
+| ------------------- | -------------------- | ----------- | --------------------------------- |
+| `baseURL`           | `string`             | `undefined` | Base URL for all Axios requests.  |
+| `axiosConfig`       | `AxiosRequestConfig` | `{}`        | Custom Axios configuration.       |
+| `queryClientConfig` | `QueryClientConfig`  | `{}`        | React Query client configuration. |
 
 ### `useApiHelper`
 
-| Option       | Type                 | Description                                          |
-|--------------|----------------------|------------------------------------------------------|
-| `url`        | `string`             | API endpoint to fetch data from.                     |
-| `method`     | `'GET' , 'POST' , 'PUT' , 'DELETE'` | HTTP method for the request.          |
-| `queryKey`   | `Array<string>`      | Unique key for React Query's cache management.       |
+| Option     | Type                                | Description                                    |
+| ---------- | ----------------------------------- | ---------------------------------------------- |
+| `url`      | `string`                            | API endpoint to fetch data from.               |
+| `method`   | `'GET' , 'POST' , 'PUT' , 'DELETE'` | HTTP method for the request.                   |
+| `queryKey` | `Array<string>`                     | Unique key for React Query's cache management. |
 
 ## Contributing
 
