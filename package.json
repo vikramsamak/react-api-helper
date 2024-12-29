@@ -1,6 +1,6 @@
 {
   "name": "react-api-utils",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "type": "module",
   "author": "Vikram Samak",
   "description": "A React utility library for making API calls using React Query and Axios, providing context-based configuration and custom hooks for seamless integration.",
