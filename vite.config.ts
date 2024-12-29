@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [
     react(),
     dts({
-      include: ['src/**/*.ts', 'src/**/*.tsx'],
+      include: ['lib/**/*.ts', 'lib/**/*.tsx'],
       insertTypesEntry: true,
       outDir: 'dist',
       copyDtsFiles: true,
@@ -20,7 +20,7 @@ export default defineConfig({
     minify: 'esbuild',
     sourcemap: true,
     lib: {
-      entry: path.resolve(__dirname, 'src/index.ts'),
+      entry: path.resolve(__dirname, 'lib/index.ts'),
       name: 'react-api-helper',
       fileName: (format) => `react-api-helper-${format}.js`,
     },
