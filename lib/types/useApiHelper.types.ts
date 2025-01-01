@@ -13,7 +13,7 @@ export interface useApiHelperProps<
   url: string;
   params?: Record<string, unknown>;
   data?: payloadType;
-  queryKey: QueryKey;
+  queryKey?: QueryKey;
   axiosOptions?: AxiosRequestConfig;
   method: HTTPMethod;
   onSuccess?: (data: responseType) => void;
