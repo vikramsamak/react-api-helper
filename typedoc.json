@@ -5,5 +5,6 @@
   "excludePrivate": true,
   "excludeProtected": true,
   "name": "react-api-utils",
-  "theme": "default"
+  "theme": "default",
+  "githubPages": false
 }
