@@ -28,6 +28,8 @@ import { AxiosRequestConfig } from 'axios';
  * >
  *   <YourComponent />
  * </ApiHelperProvider>
+ *
+ *
  */
 export interface ApiHelperProviderProps {
   baseURL: string;
