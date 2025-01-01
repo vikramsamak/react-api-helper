@@ -26,6 +26,29 @@ const defaultQueryClientConfig: QueryClientConfig = {
   },
 };
 
+/**
+ * Context provider for providing Axios instance and Query Client for API requests.
+ * This provider wraps your app to ensure that the API helper context is accessible and
+ * queries can be persisted using AsyncStorage.
+ *
+ *
+ * @example
+ * import {ApiHelperProvider} from 'react-api-utils';
+ *
+ * function App() {
+ *   return (
+ *     <ApiHelperProvider baseURL="https://api.example.com">
+ *       <YourComponent />
+ *     </ApiHelperProvider>
+ *   );
+ * }
+ *
+ * @param {string} baseURL - The base URL for all API requests.
+ * @param {AxiosRequestConfig} [axiosConfig={}] - Optional configuration to extend or override the default Axios config.
+ * @param {QueryClientConfig} [queryClientConfig={}] - Optional configuration to extend or override the default React Query client config.
+ * @param {ReactNode} children - The children components that can access the API context.
+ */
+
 const ApiHelperProvider: React.FC<ApiHelperProviderProps> = ({
   baseURL,
   axiosConfig = {},
