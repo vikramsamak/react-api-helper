@@ -44,7 +44,6 @@ export const PostDataStory: StoryFn = (args) => {
   });
 
   const handlePost = () => {
-    console.log('Payload:', payload);
     mutate(payload);
   };
 
