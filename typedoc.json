@@ -1,0 +1,9 @@
+{
+  "out": "docs",
+  "entryPoints": ["lib/index.ts"],
+  "exclude": ["**/*.test.ts", "**/*.test.tsx"],
+  "excludePrivate": true,
+  "excludeProtected": true,
+  "name": "react-api-utils",
+  "theme": "default"
+}
