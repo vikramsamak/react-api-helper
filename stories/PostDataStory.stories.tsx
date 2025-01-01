@@ -8,7 +8,7 @@ export default {
   title: 'Hooks/useApiHelper',
   args: {
     url: '/todos',
-    queryKey: 'post-todo',
+
     payload: { title: 'New Todo', completed: false },
   },
   argTypes: {
@@ -26,7 +26,7 @@ export default {
 } as Meta;
 
 export const PostDataStory: StoryFn = (args) => {
-  const { url, queryKey, payload } = args;
+  const { url, payload } = args;
 
   const onSuccess = (data: unknown) => {
     alert('Data posted successfully: ' + JSON.stringify(data));
@@ -36,31 +36,23 @@ export const PostDataStory: StoryFn = (args) => {
     alert('Error posting data:' + JSON.stringify(error));
   };
 
-  const apiHelperResult = useApiHelper({
+  const { mutate, isPending, isError } = useApiHelper({
     url: url,
-    queryKey: [queryKey],
     method: 'POST',
     onSuccess,
     onError,
   });
 
-  if ('mutate' in apiHelperResult) {
-    const { mutate, isPending, isError } = apiHelperResult;
+  const handlePost = () => {
+    mutate(payload);
+  };
 
-    const handlePost = () => {
-      console.log('Payload:', payload);
-      mutate(payload);
-    };
-
-    return (
-      <div>
-        <h1>Post Data</h1>
-        <button onClick={handlePost}>Post Data</button>
-        {isPending && <div>Posting...</div>}
-        {isError && <div>Error posting data</div>}
-      </div>
-    );
-  }
-
-  return <div>Error: Expected a POST method but received something else.</div>;
+  return (
+    <div>
+      <h1>Post Data</h1>
+      <button onClick={handlePost}>Post Data</button>
+      {isPending && <div>Posting...</div>}
+      {isError && <div>Error posting data</div>}
+    </div>
+  );
 };
