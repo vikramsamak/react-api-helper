@@ -1,0 +1,38 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import * as PutDataStories from './PutDataStory.stories.tsx';
+
+<Meta of={PutDataStories} />
+
+# useApiHelper - PUT Request
+
+The `useApiHelper` hook simplifies making `PUT` requests. This example demonstrates how to update data on an API endpoint.
+
+## Example
+
+```tsx
+import React from 'react';
+import { useApiHelper } from 'react-api-utils';
+
+const PutDataExample = () => {
+  const { mutate, isPending, isError } = useApiHelper({
+    url: '/todos/1',
+    method: 'PUT',
+    onSuccess: (data) => alert('Data updated successfully: ' + JSON.stringify(data)),
+    onError: (error) => alert('Error updating data: ' + JSON.stringify(error)),
+  });
+
+  const handleUpdate = () => {
+    mutate({ title: 'Updated Todo', completed: true });
+  };
+
+  return (
+    <div>
+      <h1>Update Data</h1>
+      <button onClick={handleUpdate}>Update Data</button>
+      {isPending && <div>Updating...</div>}
+      {isError && <div>Error updating data</div>}
+    </div>
+  );
+};
+
+export default PutDataExample;
