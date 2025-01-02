@@ -1,0 +1,43 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import { DeleteDataStory } from './DeleteDataStory.stories.tsx';
+
+<Meta title="Hooks/useApiHelper/DELETE" />
+
+# useApiHelper - DELETE Request
+
+The `useApiHelper` hook simplifies API requests, including `DELETE` requests. This example demonstrates how to use the hook for deleting a resource.
+
+## Example
+
+```tsx
+import React from 'react';
+import { useApiHelper } from 'react-api-utils';
+
+const DeleteDataExample = () => {
+  const { mutate, isPending, isError } = useApiHelper({
+    url: '/todos/1',
+    method: 'DELETE',
+    onSuccess: (data) => {
+      alert('Data deleted successfully: ' + JSON.stringify(data));
+    },
+    onError: (error) => {
+      alert('Error deleting data: ' + JSON.stringify(error));
+    },
+  });
+
+  const handleDelete = () => {
+    mutate({});
+  };
+
+  return (
+    <div>
+      <h1>Delete Data</h1>
+      <button onClick={handleDelete}>Delete Data</button>
+      {isPending && <div>Deleting...</div>}
+      {isError && <div>Error deleting data</div>}
+    </div>
+  );
+};
+
+export default DeleteDataExample;
+```
