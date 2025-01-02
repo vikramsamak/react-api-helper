@@ -8,15 +8,10 @@ export default {
   title: 'Hooks/useApiHelper',
   args: {
     url: '/todos',
-
     payload: { title: 'New Todo', completed: false },
   },
   argTypes: {
     url: { control: 'text', description: 'API endpoint to post data to' },
-    queryKey: {
-      control: 'text',
-      description: 'Query key for cache management',
-    },
     payload: {
       control: 'object',
       description: 'Payload for the POST request',
