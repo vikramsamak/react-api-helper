@@ -5,7 +5,7 @@ import sharedConfig from './ApiHelper.stories';
 
 export default {
   ...sharedConfig,
-  title: 'Hooks/useApiHelper',
+  title: 'Hooks/useApiHelper/FETCH',
   args: {
     url: '/todos/1',
     queryKey: ['todo'].join(','),
@@ -18,7 +18,7 @@ export default {
       transform: (value: string) => value.split(',').map((item) => item.trim()),
     },
   },
-  tags: ['autodocs', 'hooks'],
+  tags: ['hooks'],
 } as Meta;
 
 export const FetchDataStory: StoryFn = (args) => {
