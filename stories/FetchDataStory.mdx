@@ -1,0 +1,34 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import * as FetchDataStories from './FetchDataStory.stories.tsx';
+
+<Meta of={FetchDataStories} />
+
+# useApiHelper - FETCH Request
+
+The `useApiHelper` hook streamlines data fetching with the `GET` method. This example demonstrates how to use the hook to fetch data from an API.
+
+## Example
+
+```tsx
+import React from 'react';
+import { useApiHelper } from 'react-api-utils';
+
+const FetchDataExample = () => {
+  const { data, isError, isPending } = useApiHelper({
+    url: '/todos/1',
+    queryKey: ['todo'],
+    method: 'GET',
+  });
+
+  if (isPending) return <div>Loading...</div>;
+  if (isError) return <div>Error fetching data</div>;
+
+  return (
+    <div>
+      <h1>Fetched Todo</h1>
+      <pre>{JSON.stringify(data, null, 2)}</pre>
+    </div>
+  );
+};
+
+export default FetchDataExample;
