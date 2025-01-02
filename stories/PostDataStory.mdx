@@ -1,0 +1,40 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import * as PostDataStories from './PostDataStory.stories.tsx';
+
+<Meta of={PostDataStories} />
+
+# useApiHelper - POST Request
+
+The `useApiHelper` hook simplifies making `POST` requests. This example demonstrates how to send data to an API endpoint.
+
+## Example
+
+```tsx
+import React from 'react';
+import { useApiHelper } from 'react-api-utils';
+
+const PostDataExample = () => {
+  const { mutate, isPending, isError } = useApiHelper({
+    url: '/todos',
+    method: 'POST',
+    onSuccess: (data) =>
+      alert('Data posted successfully: ' + JSON.stringify(data)),
+    onError: (error) => alert('Error posting data: ' + JSON.stringify(error)),
+  });
+
+  const handlePost = () => {
+    mutate({ title: 'New Todo', completed: false });
+  };
+
+  return (
+    <div>
+      <h1>Post Data</h1>
+      <button onClick={handlePost}>Post Data</button>
+      {isPending && <div>Posting...</div>}
+      {isError && <div>Error posting data</div>}
+    </div>
+  );
+};
+
+export default PostDataExample;
+```
