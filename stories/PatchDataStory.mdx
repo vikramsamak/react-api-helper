@@ -1,0 +1,41 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import * as PatchDataStories from './PatchDataStory.stories.tsx';
+
+<Meta of={PatchDataStories} />
+
+# useApiHelper - PATCH Request
+
+The `useApiHelper` hook simplifies performing `PATCH` requests. This example demonstrates how to partially update data via an API.
+
+## Example
+
+```tsx
+import React from 'react';
+import { useApiHelper } from 'react-api-utils';
+
+const PatchDataExample = () => {
+  const { mutate, isPending, isError } = useApiHelper({
+    url: '/todos/1',
+    method: 'PATCH',
+    onSuccess: (data) =>
+      alert('Data partially updated successfully: ' + JSON.stringify(data)),
+    onError: (error) =>
+      alert('Error partially updating data: ' + JSON.stringify(error)),
+  });
+
+  const handlePatch = () => {
+    mutate({ completed: true });
+  };
+
+  return (
+    <div>
+      <h1>Partially Update Data</h1>
+      <button onClick={handlePatch}>Patch Data</button>
+      {isPending && <div>Patching...</div>}
+      {isError && <div>Error patching data</div>}
+    </div>
+  );
+};
+
+export default PatchDataExample;
+```
