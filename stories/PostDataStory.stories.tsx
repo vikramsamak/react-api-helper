@@ -5,7 +5,7 @@ import { useApiHelper } from '../lib/hooks';
 
 export default {
   ...sharedConfig,
-  title: 'Hooks/useApiHelper',
+  title: 'Hooks/useApiHelper/POST',
   args: {
     url: '/todos',
     payload: { title: 'New Todo', completed: false },
@@ -17,7 +17,7 @@ export default {
       description: 'Payload for the POST request',
     },
   },
-  tags: ['autodocs', 'hooks'],
+  tags: ['hooks'],
 } as Meta;
 
 export const PostDataStory: StoryFn = (args) => {
